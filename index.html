@@ -46,10 +46,16 @@ main {
     box-shadow: 0 0 25px rgba(0,0,0,0.1);
     border-radius: 8px;
 }
-img {
-    display: block;
-    margin: 50px auto 50px;
+.profile-header {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+.profile-header img {
     width: 200px;
+    height: auto;
+    margin: 0;
 }
 footer {
     margin-top: 30px;
@@ -64,34 +70,25 @@ footer {
 </head>
 <body>
 <main id="layout-content" style="margin-top:25px">
-    <table>
-        <tbody>
-            <tr>
-                <td width="900">
-                    <div id="toptitle">
-                        <h1>Hyunseok Jeong</h1>
-                    </div>
-                    <ul>
-                        <h3>Ph.D. candidate</h3>
-                        <p>
-                            Dept. of Medical Science <br/>
-                            Yonsei University College of Medicine <br/>
-                            Seoul <br/>
-                            <br/>
-                            Email: hyunseok20@yonsei.ac.kr
-                        <p>
-                            <a href="https://scholar.google.com/citations?user=NhCLNI4AAAAJ&hl=ko" style="display: inline-block; margin-right: 10px;">
-                                <img src="./picture/gs.png" width="10px" style="max-width: 30px;margin-bottom:-3px" alt="Google Scholar">
-                            </a>
-                        </p>
-                    </ul>
-                </td>
-                <td>
-                    <img src="./picture/hs.jpg" alt="Hyunseok Jeong profile photo"/>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="profile-header">
+        <img src="./picture/hs.jpg" alt="Hyunseok Jeong profile photo"/>
+        <div>
+            <h1>Hyunseok Jeong</h1>
+            <h3>Ph.D. candidate</h3>
+            <p>
+                Dept. of Medical Science <br/>
+                Yonsei University College of Medicine <br/>
+                Seoul <br/>
+                <br/>
+                Email: hyunseok20@yonsei.ac.kr
+            </p>
+            <p>
+                <a href="https://scholar.google.com/citations?user=NhCLNI4AAAAJ&hl=ko" style="display: inline-block; margin-right: 10px;">
+                    <img src="./picture/gs.png" width="20px" alt="Google Scholar">
+                </a>
+            </p>
+        </div>
+    </div>
 
     <h2>Bio</h2>
     <hr class="fancy">
@@ -130,7 +127,7 @@ footer {
     <div id="footer-text"></div>
 </footer>
 <p><center>
-    © Sekeun Kim | Last updated: Sep, 2023
+    © Hyunseok Jeong | Last updated: May, 2025
 </center></p>
 </body>
 </html>
