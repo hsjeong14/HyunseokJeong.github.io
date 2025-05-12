@@ -59,12 +59,38 @@ main {
 }
 footer {
     margin-top: 30px;
-    font-size: 0.85em;
+    font-size: 1.30em;
     text-align: center;
     color: #666;
     max-width: 900px;
     margin: 0 auto;
     padding: 20px 0;
+}
+
+.publication-card, .education-card {
+    border: 1px solid #eaeaea;
+    padding: 20px;
+    margin: 50px 0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.publication-card h3, .education-card h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.publication-card p, .education-card p {
+    margin: 5px 0;
+}
+
+.education-card img {
+    width: 70px;
+    height: 70px;
+    margin-right: 20px;
+    border-radius: 10px;
+    object-fit: cover;
 }
 </style>
 </head>
@@ -126,7 +152,7 @@ footer {
     <tbody>
     <tr>
     <td width="310">
-    <img class="center" src="./picture/CXR2.0.png" style="box-shadow: 4px 4px 8px #888" width="100px"/>
+    <img class="center" src="./picture/CXR2.0.png" style="box-shadow: 4px 4px 8px #888" width="650px"/>
     </td>
     <td> <b>Predicting categories of coronary artery calcium scores from chest X-ray images using deep learning. </b><br/>
     Youngtaek Hong† · <b>Hyunseok Jeong†</b> · Younggul Jang · Ran Heo · Seung-Ah Lee · Yeonyee E Yoon · Jina Lee · Hyung-Bok Park · Hyuk-Jae Chang <br/>
