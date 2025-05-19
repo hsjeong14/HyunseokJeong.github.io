@@ -1,1 +1,2 @@
 theme: jekyll-theme-minimal
+plugins: ['jekyll-paginate', 'jekyll-sitemap', 'jekyll-include-cache', 'jekyll-gist', 'jekyll-theme-minimal']
