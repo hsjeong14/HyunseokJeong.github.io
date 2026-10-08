@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>document.documentElement.classList.add("js")</script>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="keywords" content="Hyunseok Jeong, Hyunseok, Yonsei, 정현석, 연세대"/>
@@ -170,6 +171,37 @@ footer {
     max-width: 880px; margin: 72px auto 0; padding: 24px 24px 48px;
     border-top: 1px solid var(--line); color: var(--faint); font-size: 0.85em;
 }
+
+
+/* Active nav */
+nav .links a { position: relative; transition: color .2s; }
+nav .links a.active { color: var(--text); font-weight: 500; }
+nav .links a::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -15px; height: 2px;
+    background: var(--accent); border-radius: 2px; transform: scaleX(0); transition: transform .25s ease;
+}
+nav .links a.active::after { transform: scaleX(1); }
+
+/* Reveal on scroll */
+.js .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+.js .reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+    .js .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+}
+
+/* Paper filter */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 18px; }
+.filters button {
+    font: inherit; font-size: 0.82em; font-weight: 500; cursor: pointer;
+    padding: 4px 12px; border-radius: 999px;
+    border: 1px solid var(--line); background: transparent; color: var(--muted);
+    transition: all .2s;
+}
+.filters button:hover { border-color: var(--accent); color: var(--accent); }
+.filters button.on { background: var(--text); border-color: var(--text); color: var(--bg); }
+.filters .count { align-self: center; margin-left: 4px; font-size: 0.82em; color: var(--faint); }
+ol.papers li.hide { display: none; }
 
 @media (max-width: 720px) {
     nav .links { display: none; }
@@ -354,21 +386,30 @@ footer {
     </div>
 
     <h3 class="minor">All Papers &amp; Conferences</h3>
+    <div class="filters" role="group" aria-label="Filter papers">
+        <button type="button" class="on" data-f="all">All</button>
+        <button type="button" data-f="first">First author</button>
+        <button type="button" data-f="2026">2026</button>
+        <button type="button" data-f="2025">2025</button>
+        <button type="button" data-f="2024">2024</button>
+        <button type="button" data-f="old">2023 &amp; earlier</button>
+        <span class="count" id="paper-count"></span>
+    </div>
     <ol class="papers">
-        <li><b>Jeong, H.†</b>, ... &amp; Chang, H. J. (2026). Multi-Task Deep Learning Framework for Real-Time Quality Assessment and Probe Guidance in Echocardiography. <em>IEEE Journal of Biomedical and Health Informatics</em>.</li>
-        <li>Jeong, D.†, Soh MS, Jeon J, <b>Jeong, H.</b>, ... &amp; Chang, H. J. (2026). Deep Learning–Based Multiclass Classification of Mitral Valve Etiologies Using Limited B-Mode and Color Doppler Echocardiography: Internal and External Validation. <em>Journal of the American Society of Echocardiography</em>.</li>
-        <li>Hong, Y.†, <b>Jeong, H.†</b>, Jang, Y., Heo, R., Lee, S. A., Yoon, Y. E., ... &amp; Chang, H. J. (2025). Predicting categories of coronary artery calcium scores from chest X-ray images using deep learning. <em>Journal of Cardiovascular Computed Tomography</em>.</li>
-        <li>Park, J., Kim, J., ..., <b>Jeong, H.</b>, ... &amp; Chang, H. J. (2025). Deep Learning–Based Detection and Severity Assessment of Bicuspid Aortic Valve Stenosis. <em>Journal of the American Society of Echocardiography</em>, 2025-04.</li>
-        <li>Park, J., Kim, J., Jeon, J., Yoon, Y. E., Jang, Y., <b>Jeong, H.</b>, ... &amp; Chang, H. J. (2025). Single View Echocardiographic Analysis for Left Ventricular Outflow Tract Obstruction Prediction in Hypertrophic Cardiomyopathy: A Deep Learning Approach. <em>Journal of the American Society of Echocardiography</em>, 2025-03.</li>
-        <li>Park, J., Kim, J., Jeon, J., Yoon, Y. E., Jang, Y., <b>Jeong, H.</b>, ... &amp; Chang, H. J. (2025). Artificial intelligence-enhanced comprehensive assessment of the aortic valve stenosis continuum in echocardiography. <em>EBioMedicine</em>, 112.</li>
-        <li><b>Jeong, H.†</b>, Park, H. B., Hong, J., Lee, J., Ha, S., Heo, R., ... &amp; Chang, H. J. (2024). Identifying Coronary Artery Calcification Using Chest X-ray Radiographs and Machine Learning: The Role of the Radiomics Score. <em>Journal of Thoracic Imaging</em>, 39(2), 119-126.</li>
-        <li>Jang, Y., Jung, J., Hong, Y., Lee, J., <b>Jeong, H.</b>, Shim, H., &amp; Chang, H. J. (2024). Fully Convolutional Hybrid Fusion Network with Heterogeneous Representations for Identification of S1 and S2 from Phonocardiogram. <em>IEEE Journal of Biomedical and Health Informatics</em>.</li>
-        <li>Oh, S. U., Park, H. B., <b>Jeong, H.</b>, S. Lee, J. N., Heo, R., Hong, Y. T., &amp; Chang, H. J. (2024). Deep learning approaches for image restoration in invasive coronary angiography. <em>European Heart Journal</em>, 45(Supplement_1), ehae666-2328.</li>
-        <li>Jeon, J., Ha, S., Yoon, Y. E., Kim, J., <b>Jeong, H.</b>, Jeong, D., ... &amp; Chang, H. J. (2023). Echocardiographic View Classification with Integrated Out-of-Distribution Detection for Enhanced Automatic Echocardiographic Analysis. <em>arXiv preprint arXiv:2308.16483</em>.</li>
-        <li>Park, H. B., <b>Jeong, H.</b>, Hong, Y., &amp; Chang, H. J. (2022). An Integrated Framework With Machine Learning and Radiomics Score for the Prediction of Coronary Artery Calcium Score From Chest Radiographs. <em>Circulation</em>, 146(Suppl_1), A11189-A11189.</li>
-        <li><b>Jeong, H.†</b>, Ha S, Shim H, Oh S, Chang H, “Skin Lesion Image Generation Method for Avoiding Data Imbalance with conditional Deep Convolutional Generative Adversarial Networks”, <em>Proceedings of the Institute of Electronics and Information Engineers (IEEK) Conference</em>, 1822-1828, 2020.</li>
-        <li>Seongmin Ha, <b>Jeong, H.</b>, Jihee Kim, Hyuk-jae Chang, Su Jin Park, Sang Ho Oh. Multiple classification by supplementing lesion region information on lesion of facial skin using deep learning. <em>Korean Dermatological Association program book</em>, 72(1), 423-423, 2020.</li>
-        <li><b>Jeong, H.†</b>, Ha S, Shim H, Chang H, “Deep Learning Algorithm for Skin Lesion Severity Classification based on Lesion Information”, <em>Proceedings of the Korean Information Science Society Conference</em>, 1941-1943, 2019.</li>
+        <li data-year="2026" data-first="1"><b>Jeong, H.†</b>, ... &amp; Chang, H. J. (2026). Multi-Task Deep Learning Framework for Real-Time Quality Assessment and Probe Guidance in Echocardiography. <em>IEEE Journal of Biomedical and Health Informatics</em>.</li>
+        <li data-year="2026" data-first="0">Jeong, D.†, Soh MS, Jeon J, <b>Jeong, H.</b>, ... &amp; Chang, H. J. (2026). Deep Learning–Based Multiclass Classification of Mitral Valve Etiologies Using Limited B-Mode and Color Doppler Echocardiography: Internal and External Validation. <em>Journal of the American Society of Echocardiography</em>.</li>
+        <li data-year="2025" data-first="1">Hong, Y.†, <b>Jeong, H.†</b>, Jang, Y., Heo, R., Lee, S. A., Yoon, Y. E., ... &amp; Chang, H. J. (2025). Predicting categories of coronary artery calcium scores from chest X-ray images using deep learning. <em>Journal of Cardiovascular Computed Tomography</em>.</li>
+        <li data-year="2025" data-first="0">Park, J., Kim, J., ..., <b>Jeong, H.</b>, ... &amp; Chang, H. J. (2025). Deep Learning–Based Detection and Severity Assessment of Bicuspid Aortic Valve Stenosis. <em>Journal of the American Society of Echocardiography</em>, 2025-04.</li>
+        <li data-year="2025" data-first="0">Park, J., Kim, J., Jeon, J., Yoon, Y. E., Jang, Y., <b>Jeong, H.</b>, ... &amp; Chang, H. J. (2025). Single View Echocardiographic Analysis for Left Ventricular Outflow Tract Obstruction Prediction in Hypertrophic Cardiomyopathy: A Deep Learning Approach. <em>Journal of the American Society of Echocardiography</em>, 2025-03.</li>
+        <li data-year="2025" data-first="0">Park, J., Kim, J., Jeon, J., Yoon, Y. E., Jang, Y., <b>Jeong, H.</b>, ... &amp; Chang, H. J. (2025). Artificial intelligence-enhanced comprehensive assessment of the aortic valve stenosis continuum in echocardiography. <em>EBioMedicine</em>, 112.</li>
+        <li data-year="2024" data-first="1"><b>Jeong, H.†</b>, Park, H. B., Hong, J., Lee, J., Ha, S., Heo, R., ... &amp; Chang, H. J. (2024). Identifying Coronary Artery Calcification Using Chest X-ray Radiographs and Machine Learning: The Role of the Radiomics Score. <em>Journal of Thoracic Imaging</em>, 39(2), 119-126.</li>
+        <li data-year="2024" data-first="0">Jang, Y., Jung, J., Hong, Y., Lee, J., <b>Jeong, H.</b>, Shim, H., &amp; Chang, H. J. (2024). Fully Convolutional Hybrid Fusion Network with Heterogeneous Representations for Identification of S1 and S2 from Phonocardiogram. <em>IEEE Journal of Biomedical and Health Informatics</em>.</li>
+        <li data-year="2024" data-first="0">Oh, S. U., Park, H. B., <b>Jeong, H.</b>, S. Lee, J. N., Heo, R., Hong, Y. T., &amp; Chang, H. J. (2024). Deep learning approaches for image restoration in invasive coronary angiography. <em>European Heart Journal</em>, 45(Supplement_1), ehae666-2328.</li>
+        <li data-year="2023" data-first="0">Jeon, J., Ha, S., Yoon, Y. E., Kim, J., <b>Jeong, H.</b>, Jeong, D., ... &amp; Chang, H. J. (2023). Echocardiographic View Classification with Integrated Out-of-Distribution Detection for Enhanced Automatic Echocardiographic Analysis. <em>arXiv preprint arXiv:2308.16483</em>.</li>
+        <li data-year="2022" data-first="0">Park, H. B., <b>Jeong, H.</b>, Hong, Y., &amp; Chang, H. J. (2022). An Integrated Framework With Machine Learning and Radiomics Score for the Prediction of Coronary Artery Calcium Score From Chest Radiographs. <em>Circulation</em>, 146(Suppl_1), A11189-A11189.</li>
+        <li data-year="2020" data-first="1"><b>Jeong, H.†</b>, Ha S, Shim H, Oh S, Chang H, “Skin Lesion Image Generation Method for Avoiding Data Imbalance with conditional Deep Convolutional Generative Adversarial Networks”, <em>Proceedings of the Institute of Electronics and Information Engineers (IEEK) Conference</em>, 1822-1828, 2020.</li>
+        <li data-year="2020" data-first="0">Seongmin Ha, <b>Jeong, H.</b>, Jihee Kim, Hyuk-jae Chang, Su Jin Park, Sang Ho Oh. Multiple classification by supplementing lesion region information on lesion of facial skin using deep learning. <em>Korean Dermatological Association program book</em>, 72(1), 423-423, 2020.</li>
+        <li data-year="2019" data-first="1"><b>Jeong, H.†</b>, Ha S, Shim H, Chang H, “Deep Learning Algorithm for Skin Lesion Severity Classification based on Lesion Information”, <em>Proceedings of the Korean Information Science Society Conference</em>, 1941-1943, 2019.</li>
     </ol>
     <p class="note">† First author / co-first author</p>
 </section>
@@ -413,5 +454,58 @@ footer {
 </div>
 
 <footer>© 2026 Hyunseok Jeong · Last updated October 2026</footer>
+<script>
+(function () {
+    // Paper filter
+    var btns = document.querySelectorAll('.filters button');
+    var papers = document.querySelectorAll('ol.papers li');
+    var count = document.getElementById('paper-count');
+    function apply(f) {
+        var n = 0;
+        papers.forEach(function (li) {
+            var y = +li.dataset.year, show =
+                f === 'all' ? true :
+                f === 'first' ? li.dataset.first === '1' :
+                f === 'old' ? y <= 2023 : y === +f;
+            li.classList.toggle('hide', !show);
+            if (show) n++;
+        });
+        count.textContent = n + (n === 1 ? ' paper' : ' papers');
+    }
+    btns.forEach(function (b) {
+        b.addEventListener('click', function () {
+            btns.forEach(function (x) { x.classList.remove('on'); });
+            b.classList.add('on');
+            apply(b.dataset.f);
+        });
+    });
+    apply('all');
+
+    if (!('IntersectionObserver' in window)) {
+        document.querySelectorAll('section > *').forEach(function (el) { el.classList.add('in'); });
+        return;
+    }
+
+    // Reveal on scroll
+    var ro = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); }
+        });
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0 });
+    document.querySelectorAll('section > :not(ol):not(ul), ul.tags, ol.papers > li, .rows > li').forEach(function (el) { el.classList.add('reveal'); ro.observe(el); });
+
+    // Active nav link
+    var links = {};
+    document.querySelectorAll('nav .links a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+    var no = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            var id = e.target.id === 'patents' ? 'projects' : e.target.id;
+            Object.keys(links).forEach(function (k) { links[k].classList.toggle('active', k === id); });
+        });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    document.querySelectorAll('section[id]').forEach(function (s) { no.observe(s); });
+})();
+</script>
 </body>
 </html>
