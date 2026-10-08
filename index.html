@@ -1,449 +1,345 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-
-<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<link href="myIcon.ico" rel="shortcut icon"/>
-
-<meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-<meta content="Hyunseok Jeong, Hyunseok, Yonsei, 정현석, 연세대" name="keywords"/>
-<meta content="HS's home page" name="description"/>
-
-
-<meta name="google-site-verification" content="Kq3yiReco5it8dLm_PUAvazX8TtAwVG56HE0B1nhw84" />
-
-
-<link href="jemdoc.css" rel="stylesheet" type="text/css"/>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="keywords" content="Hyunseok Jeong, Hyunseok, Yonsei, 정현석, 연세대"/>
+<meta name="description" content="HS's home page"/>
+<meta name="google-site-verification" content="Kq3yiReco5it8dLm_PUAvazX8TtAwVG56HE0B1nhw84"/>
 <title>Hyunseok Jeong</title>
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-159069803-1', 'auto');
-ga('send', 'pageview');
-</script>
 <style>
+* { box-sizing: border-box; }
 
-ol.publication-list {
-    list-style: none; /* 기본 1. 2. 3. 숫자 제거 */
-    counter-reset: pub-counter;
-    padding-left: 0;
-    }
-
-ol.publication-list > li {
-    counter-increment: pub-counter;
-    position: relative;
-    padding-left: 35px; /* [1] 번호 들어갈 여백 */
-    margin-bottom: 15px;
-    }
-
-ol.publication-list > li::before {
-    content: "[" counter(pub-counter) "]"; /* [1], [2] 형태로 자동 표기 */
-    position: absolute;
-    left: 0;
-    top: 0;
-    font-weight: bold;
-    }
-
-hr.fancy {
-  border: none;
-  height: 2px;
-  background-image: linear-gradient(to right, transparent, #a4a4a4, transparent);
-}
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0 auto;
-    padding: 10px 5px;
-    line-height: 1.7;
+    margin: 0;
+    padding: 32px 16px;
+    line-height: 1.65;
     color: #333;
     background: #e1e1e1;
+}
+
+main {
     max-width: 1000px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 56px 60px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.1);
+    border-radius: 8px;
 }
-h1, h2, h3 {
-    color: #2d4750;
-    margin-top: 10px;
-}
+
+h1, h2, h3 { color: #2d4750; line-height: 1.3; }
+h1 { margin: 0 0 4px; font-size: 2.2em; }
+h2 { margin: 0; font-size: 1.5em; }
+
 a {
     color: #3498db;
     text-decoration: none;
     border-bottom: 1px solid transparent;
     transition: border-color 0.3s, color 0.3s;
 }
-a:hover {
-    border-color: #3498db;
-    color: #2a80b9;
-}
-main {
-    max-width: 1000px;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 60px 60px;
-    box-shadow: 0 0 25px rgba(0,0,0,0.1);
-    border-radius: 8px;
-}
+a:hover { border-color: #3498db; color: #2a80b9; }
+
+/* Profile */
 .profile-header {
     display: flex;
     gap: 40px;
     align-items: flex-start;
-    margin-bottom: 5px;
 }
-.profile-header img {
+.profile-header > img {
     width: 200px;
     height: auto;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+.profile-header .degree { margin: 0 0 16px; font-size: 1.15em; color: #2d4750; font-weight: 600; }
+.profile-header p { margin: 0 0 16px; }
+.profile-header .scholar { border: none; display: inline-block; }
+.profile-header .scholar img { width: 40px; height: auto; display: block; }
+
+/* Sections */
+section { margin-top: 48px; }
+hr.fancy {
+    border: none;
+    height: 2px;
+    margin: 10px 0 20px;
+    background-image: linear-gradient(to right, transparent, #a4a4a4, transparent);
+}
+section ul { margin: 0; padding-left: 22px; }
+section li { margin-bottom: 10px; }
+section li:last-child { margin-bottom: 0; }
+
+/* Selected publications & projects */
+.item {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 28px;
+    align-items: start;
+    padding: 24px 0;
+    border-bottom: 1px solid #eee;
+}
+.item:first-of-type { padding-top: 4px; }
+.item:last-child { border-bottom: none; padding-bottom: 0; }
+.item img {
+    width: 100%;
+    height: auto;
+    box-shadow: 4px 4px 8px #888;
+}
+.item .title { font-weight: bold; display: block; margin-bottom: 4px; }
+.item p { margin: 0 0 8px; }
+.item p:last-child { margin-bottom: 0; }
+
+/* Full publication list */
+ol.publication-list {
+    list-style: none;
+    counter-reset: pub-counter;
+    padding-left: 0;
     margin: 0;
 }
+ol.publication-list > li {
+    counter-increment: pub-counter;
+    position: relative;
+    padding-left: 44px;
+    margin-bottom: 12px;
+}
+ol.publication-list > li::before {
+    content: "[" counter(pub-counter) "]";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: bold;
+}
+
 footer {
-    margin: 0 auto;
-    margin-top: 30px; /* ← 이게 더 나중에 와야 적용됨 */
-    font-size: 1.30em;
+    max-width: 1000px;
+    margin: 32px auto 0;
     text-align: center;
     color: #666;
-    max-width: 900px;
-    padding: 20px 0;
 }
+#clustrmaps-widget { width: 120px; margin: 0 auto 12px; }
 
-.publication-card, .education-card {
-    border: 1px solid #eaeaea;
-    padding: 20px;
-    margin: 50px 0;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-}
-
-.publication-card h3, .education-card h3 {
-    margin: 0;
-    font-size: 1.2em;
-}
-
-.publication-card p, .education-card p {
-    margin: 5px 0;
-}
-
-.education-card img {
-    width: 70px;
-    height: 70px;
-    margin-right: 20px;
-    border-radius: 10px;
-    object-fit: cover;
+@media (max-width: 720px) {
+    body { padding: 16px 12px; }
+    main { padding: 32px 20px; }
+    h1 { font-size: 1.8em; }
+    .profile-header { flex-direction: column; align-items: center; text-align: center; gap: 20px; }
+    .profile-header > img { width: 160px; }
+    section { margin-top: 36px; }
+    .item { grid-template-columns: 1fr; gap: 16px; }
+    .item img { max-width: 360px; }
 }
 </style>
 </head>
 <body>
-<main id="layout-content" style="margin-top:25px">
+<main>
     <div class="profile-header">
         <img src="./picture/hs.jpg" alt="Hyunseok Jeong profile photo"/>
         <div>
             <h1>Hyunseok Jeong</h1>
-            <h3>Ph.D.</h3>
+            <div class="degree">Ph.D.</div>
             <p>
-                Division of Computer Engineering <br/>
-                Hankuk University of Foreign Studies <br/>
-                <br/>
-                Email: hsjeong@hufs.ac.kr
-            <p>
-                <a href="https://scholar.google.com/citations?hl=ko&user=fwxgHZYAAAAJ&view_op=list_works&sortby=pubdate" style="display: inline-block; margin-right: 10px;">
-                <img src="./picture/gs.png" alt="Google Scholar" style="width:40px; height:auto; vertical-align: middle;">
-                </a>
+                Division of Computer Engineering<br/>
+                Hankuk University of Foreign Studies<br/>
+                Email: <a href="mailto:hsjeong@hufs.ac.kr">hsjeong@hufs.ac.kr</a>
             </p>
+            <a class="scholar" href="https://scholar.google.com/citations?hl=ko&amp;user=fwxgHZYAAAAJ&amp;view_op=list_works&amp;sortby=pubdate" title="Google Scholar">
+                <img src="./picture/gs.png" alt="Google Scholar"/>
+            </a>
         </div>
     </div>
 
-<h2>Bio</h2>
-<hr class="fancy">
-<div style="height: 300px;">
-<ul>
-<li>
-    My research focuses on the intersection of artificial intelligence, medical imaging, and real-time guidance 
-    technologies, with the goal of enhancing diagnostic accuracy and accessibility in clinical practice.<br> 
-    I am currently a <b>postdoctoral research fellow at the Division of Computer Engineering, 
-    Hankuk University of Foreign Studies</b>, working with Prof. Byunghwan Jeon.
-</li> 
-<li>
-    <b>Ph.D in Medical Science, Yonsei Universitiy, College of Medicine.</b> (Full-funded scholarship)<br>
-    Thesis Title : Deep learning-based real-time image quality assessment and guidance techniques for echocardiography standard view acquisition.<br>
-    Advisor : Hyuk-jae Chang, MD, PhD<br>
-</li> 
-<li>
-    <b>B.S in Physics, Yonsei University.</b><br>
-    Jan 2014 - Jan 2020 Bachelor (2017-2018 : Military Service: Republic of Korea Army)<br>
-</li>
-</ul>
-</div>
+    <section>
+        <h2>Bio</h2>
+        <hr class="fancy"/>
+        <ul>
+            <li>
+                My research focuses on the intersection of artificial intelligence, medical imaging, and real-time guidance
+                technologies, with the goal of enhancing diagnostic accuracy and accessibility in clinical practice.<br/>
+                I am currently a <b>postdoctoral research fellow at the Division of Computer Engineering,
+                Hankuk University of Foreign Studies</b>, working with Prof. Byunghwan Jeon.
+            </li>
+            <li>
+                <b>Ph.D in Medical Science, Yonsei University, College of Medicine.</b> (Full-funded scholarship)<br/>
+                Thesis Title: Deep learning-based real-time image quality assessment and guidance techniques for echocardiography standard view acquisition.<br/>
+                Advisor: Hyuk-jae Chang, MD, PhD
+            </li>
+            <li>
+                <b>B.S in Physics, Yonsei University.</b><br/>
+                Jan 2014 - Jan 2020 Bachelor (2017-2018: Military Service, Republic of Korea Army)
+            </li>
+        </ul>
+    </section>
 
-<h2>News</h2>
-<hr class="fancy">
-<div style="height: 150px;">
-<ul>
-<li>
-    [2026.10] Congrats! Our paper "Toward Agentic Echocardiography: Reinforcement Learning with Foundation-Model Similarity Rewards in a CT-Derived Simulation" was selected for an oral presentation and won BOTH the Best Presentation Award and Best Poster Award at The 2nd MICCAI Workshop on Human-AI Collaboration (HAIC 2026)!
-</li>
-<li>
-    [2026.7] Congrats! Our paper "Multi-Task Deep Learning Framework for Real-Time Quality Assessment and Probe Guidance in Echocardiography" has been accepted 
-    for publication in <i>IEEE Journal of Biomedical and Health Informatics</i>
-</li>
-<li>
-    [2025.8] Great news! Our Scan Guide software has officially entered commercialization
-             through a signed agreement with a leading Korean medical device company.
-</li>
-</ul> 
-</div>
+    <section>
+        <h2>News</h2>
+        <hr class="fancy"/>
+        <ul>
+            <li>
+                [2026.10] Congrats! Our paper "Toward Agentic Echocardiography: Reinforcement Learning with Foundation-Model Similarity Rewards in a CT-Derived Simulation" was selected for an oral presentation and won BOTH the Best Presentation Award and Best Poster Award at The 2nd MICCAI Workshop on Human-AI Collaboration (HAIC 2026)!
+            </li>
+            <li>
+                [2026.7] Congrats! Our paper "Multi-Task Deep Learning Framework for Real-Time Quality Assessment and Probe Guidance in Echocardiography" has been accepted
+                for publication in <i>IEEE Journal of Biomedical and Health Informatics</i>.
+            </li>
+            <li>
+                [2025.8] Great news! Our Scan Guide software has officially entered commercialization
+                through a signed agreement with a leading Korean medical device company.
+            </li>
+        </ul>
+    </section>
 
-<h2>Research Experience</h2>
-<hr class="fancy">
-<div style="height: 100px;">
-<ul>
-<li>
-    2026-Now : Post-Doc in Computer Engineering at Hankuk University of Foreign Studies.
-    (supervisor: <a href="https://mi.hufs.ac.kr/?c=people_jeon"> Byunghwan Jeon </a>) 
-</li>
-<li>
-    2020-2025 : PhD in Medical Science at Yonsei University, College of Medicine.
-    (supervisor: <a href="https://www.ontacthealth.com"> Hyuk-jae Chang </a>) 
-</li>
-<li>
-    2019-2020 : Internship, Connect AI Research Center, Yonsei Severance Hospital<br>                                                                                                                         
-</li>
-</ul> 
-</div>
+    <section>
+        <h2>Research Experience</h2>
+        <hr class="fancy"/>
+        <ul>
+            <li>
+                2026-Now: Post-Doc in Computer Engineering at Hankuk University of Foreign Studies
+                (supervisor: <a href="https://mi.hufs.ac.kr/?c=people_jeon">Byunghwan Jeon</a>)
+            </li>
+            <li>
+                2020-2025: PhD in Medical Science at Yonsei University, College of Medicine
+                (supervisor: <a href="https://www.ontacthealth.com">Hyuk-jae Chang</a>)
+            </li>
+            <li>
+                2019-2020: Internship, Connect AI Research Center, Yonsei Severance Hospital
+            </li>
+        </ul>
+    </section>
 
-<h2>Awards</h2>
-<hr class="fancy">
-<div style="height: 50px;">
-<ul>
-<li>
-    Best Presentation and Best Poster Awards, The 2nd MICCAI Workshop on Human-AI Collaboration (HAIC), 2026
-</li>
-<li>
-    Selected for the Merit Thesis Award for Outstanding Doctoral Research, Yonsei University, 2026
-</li> 
-<li>
-    Selected for Outstanding Research Presentation, Yonsei University College of Medicine, 2025
-</li> 
-</ul>
-</div>
+    <section>
+        <h2>Awards</h2>
+        <hr class="fancy"/>
+        <ul>
+            <li>Best Presentation and Best Poster Awards, The 2nd MICCAI Workshop on Human-AI Collaboration (HAIC), 2026</li>
+            <li>Selected for the Merit Thesis Award for Outstanding Doctoral Research, Yonsei University, 2026</li>
+            <li>Selected for Outstanding Research Presentation, Yonsei University College of Medicine, 2025</li>
+        </ul>
+    </section>
 
-<h2>Selected Publications [<a href="https://scholar.google.com/citations?hl=ko&user=fwxgHZYAAAAJ&view_op=list_works&sortby=pubdate">Google Scholar</a>]</h2>
-<hr class="fancy">
-<table id="tbPublications" width="100%">
-<tbody>
-<tr>
-<td width="310">
-<img class="center" src="./picture/Scan guide network.png" style="box-shadow: 4px 4px 8px #888" width="250px"/>
-</td>
-<td> <b>Multi-Task Deep Learning Framework for Real-Time Quality Assessment and Probe Guidance in Echocardiography. </b><br/>
-<b>Hyunseok Jeong†</b> · Jaeik Jeon · Yeonyee E Yoon · Yeonggul Jang · Jiyeon Kim · Seung-Ah Lee · Hyuk-Jae Chang <br/>
-<em>IEEE Journal of Biomedical and Health Informatics</em>, 2026 
-        <p>[<a href="https://ieeexplore.ieee.org/document/11627324">paper</a>] 
-            <br/>
-            <br/>
-        </p></td>
-        </tr>
-<tr>
+    <section>
+        <h2>Selected Publications [<a href="https://scholar.google.com/citations?hl=ko&amp;user=fwxgHZYAAAAJ&amp;view_op=list_works&amp;sortby=pubdate">Google Scholar</a>]</h2>
+        <hr class="fancy"/>
 
-<tr>
-<td width="310">
-<img class="center" src="./picture/CXR2.0.png" style="box-shadow: 4px 4px 8px #888" width="250px"/>
-</td>
-<td> <b>Predicting categories of coronary artery calcium scores from chest X-ray images using deep learning. </b><br/>
-Youngtaek Hong† · <b>Hyunseok Jeong†</b> · Younggul Jang · Ran Heo · Seung-Ah Lee · Yeonyee E Yoon · Jina Lee · Hyung-Bok Park · Hyuk-Jae Chang <br/>
-<em>Journal of Cardiovascular Computed Tomography</em>, 2025 
-        <p>[<a href="https://www.sciencedirect.com/science/article/abs/pii/S1934592525000577">paper</a>] 
-            <br/>
-            <br/>
-        </p></td>
-        </tr>
-<tr> 
+        <div class="item">
+            <img src="./picture/Scan%20guide%20network.png" alt="Scan guide network"/>
+            <div>
+                <p><span class="title">Multi-Task Deep Learning Framework for Real-Time Quality Assessment and Probe Guidance in Echocardiography.</span>
+                <b>Hyunseok Jeong†</b> · Jaeik Jeon · Yeonyee E Yoon · Yeonggul Jang · Jiyeon Kim · Seung-Ah Lee · Hyuk-Jae Chang<br/>
+                <em>IEEE Journal of Biomedical and Health Informatics</em>, 2026</p>
+                <p>[<a href="https://ieeexplore.ieee.org/document/11627324">paper</a>]</p>
+            </div>
+        </div>
 
-<tr>
-<td width="310">
-<img class="center" src="./picture/AS.png" style="box-shadow: 4px 4px 8px #888" width="250px"/>
-</td>
-<td> <b>Artificial intelligence-enhanced comprehensive assessment of the aortic valve stenosis continuum in echocardiography. </b><br/>
-    Jiesuck Park · Jiyeon Kim · Jaeik Jeon · Yeonyee E Yoon · Yeonggul Jang · <b>Hyunseok Jeong</b> · Youngtaek Hong · Seung-Ah Lee · Hong-Mi Choi · In-Chang Hwang · Goo-Yeong Cho · Hyuk-Jae Chang <br/>
-<em>EBioMedicine</em>, 2025 
-        <p>[<a href="https://www.thelancet.com/journals/ebiom/article/PIIS2352-3964(25)00004-0/fulltext">paper</a>] 
-            <br/>
-            <br/>
-        </p></td>
-        </tr>
-<tr> 
+        <div class="item">
+            <img src="./picture/CXR2.0.png" alt="CXR CACS prediction"/>
+            <div>
+                <p><span class="title">Predicting categories of coronary artery calcium scores from chest X-ray images using deep learning.</span>
+                Youngtaek Hong† · <b>Hyunseok Jeong†</b> · Younggul Jang · Ran Heo · Seung-Ah Lee · Yeonyee E Yoon · Jina Lee · Hyung-Bok Park · Hyuk-Jae Chang<br/>
+                <em>Journal of Cardiovascular Computed Tomography</em>, 2025</p>
+                <p>[<a href="https://www.sciencedirect.com/science/article/abs/pii/S1934592525000577">paper</a>]</p>
+            </div>
+        </div>
 
-<tr>
-    <td width="310">
-    <img class="center" src="./picture/PCG.png" style="box-shadow: 4px 4px 8px #888" width="250px"/>
-    </td>
-    <td> <b>Fully Convolutional Hybrid Fusion Network with Heterogeneous Representations for Identification of S1 and S2 from Phonocardiogram. </b><br/>
-        Yeongul Jang · Juyeong Jung · Youngtaek Hong · Jina Lee · <b>Hyunseok Jeong</b> · Hackjoon Shim · Hyuk-Jae Chang <br/>
-    <em>IEEE Journal of Biomedical and Health Informatics</em>, 2024 
-            <p>[<a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10605058">paper</a>] 
-                <br/>
-                <br/>
-            </p></td>
-            </tr>
-<tr>
+        <div class="item">
+            <img src="./picture/AS.png" alt="Aortic stenosis assessment"/>
+            <div>
+                <p><span class="title">Artificial intelligence-enhanced comprehensive assessment of the aortic valve stenosis continuum in echocardiography.</span>
+                Jiesuck Park · Jiyeon Kim · Jaeik Jeon · Yeonyee E Yoon · Yeonggul Jang · <b>Hyunseok Jeong</b> · Youngtaek Hong · Seung-Ah Lee · Hong-Mi Choi · In-Chang Hwang · Goo-Yeong Cho · Hyuk-Jae Chang<br/>
+                <em>EBioMedicine</em>, 2025</p>
+                <p>[<a href="https://www.thelancet.com/journals/ebiom/article/PIIS2352-3964(25)00004-0/fulltext">paper</a>]</p>
+            </div>
+        </div>
 
-<tr>
-    <td width="310">
-    <img class="center" src="./picture/CXR1.0.png" style="box-shadow: 4px 4px 8px #888" width="250px"/>
-    </td>
-    <td> <b>Identifying Coronary Artery Calcification Using Chest X-ray Radiographs and Machine Learning: The Role of the Radiomics Score. </b><br/>
-        <b>Hyunseok Jeong†</b> · Hyung-Bok Park† · Jongsoo Hong · Jina Lee · Seongmin Ha · Ran Heo · Juyeong Jung · Youngtaek Hong · Hyuk-Jae Chang <br/>
-    <em>Journal of Thoracic Imaging</em>, 2024 
-            <p>[<a href="https://journals.lww.com/thoracicimaging/fulltext/2024/03000/identifying_coronary_artery_calcification_using.8.aspx?context=featuredarticles&collectionid=63">paper</a>] 
-                <br/>
-                <br/>
-            </p></td>
-            </tr>
-<tr> 
-    
+        <div class="item">
+            <img src="./picture/PCG.png" alt="PCG S1 S2 identification"/>
+            <div>
+                <p><span class="title">Fully Convolutional Hybrid Fusion Network with Heterogeneous Representations for Identification of S1 and S2 from Phonocardiogram.</span>
+                Yeongul Jang · Juyeong Jung · Youngtaek Hong · Jina Lee · <b>Hyunseok Jeong</b> · Hackjoon Shim · Hyuk-Jae Chang<br/>
+                <em>IEEE Journal of Biomedical and Health Informatics</em>, 2024</p>
+                <p>[<a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=10605058">paper</a>]</p>
+            </div>
+        </div>
 
-</tbody>
-</table>
-</li>
-</ul>
-</div>
+        <div class="item">
+            <img src="./picture/CXR1.0.png" alt="CXR radiomics"/>
+            <div>
+                <p><span class="title">Identifying Coronary Artery Calcification Using Chest X-ray Radiographs and Machine Learning: The Role of the Radiomics Score.</span>
+                <b>Hyunseok Jeong†</b> · Hyung-Bok Park† · Jongsoo Hong · Jina Lee · Seongmin Ha · Ran Heo · Juyeong Jung · Youngtaek Hong · Hyuk-Jae Chang<br/>
+                <em>Journal of Thoracic Imaging</em>, 2024</p>
+                <p>[<a href="https://journals.lww.com/thoracicimaging/fulltext/2024/03000/identifying_coronary_artery_calcification_using.8.aspx?context=featuredarticles&amp;collectionid=63">paper</a>]</p>
+            </div>
+        </div>
+    </section>
 
-<h2>Projects/Grant</h2>
-<hr class="fancy">
-<div style="height: 700px; overflow: auto;">
-<table id="tbPublications" width="100%">
-<tbody>
-<tr>
-<td width="310">
-<img class="center" src="./picture/scanguide.png" style="box-shadow: 4px 4px 8px #888" width="300px"/>
-</td>
-<td> <b>Scan Guide Software System (2023 ~ 2025) </b><br/>
+    <section>
+        <h2>Projects/Grant</h2>
+        <hr class="fancy"/>
 
-This project aims to improve the accessibility and consistency of echocardiographic image acquisition by developing a deep learning-based solution for real-time image quality assessment and probe motion guidance enabling novice operators to obtain standardized cardiac ultrasound images with reduced inter-operator variability.<br/>
-*The system is currently undergoing commercialization.<br/>
+        <div class="item">
+            <img src="./picture/scanguide.png" alt="Scan Guide"/>
+            <div>
+                <p><span class="title">Scan Guide Software System (2023 ~ 2025)</span>
+                This project aims to improve the accessibility and consistency of echocardiographic image acquisition by developing a deep learning-based solution for real-time image quality assessment and probe motion guidance, enabling novice operators to obtain standardized cardiac ultrasound images with reduced inter-operator variability.<br/>
+                *The system is currently undergoing commercialization.</p>
+                <p><b>My role is to manage practical operations of the project and lead software development for echocardiography Scan guide system.</b><br/>
+                The related paper is published in SCI journals.</p>
+                <p>[No. 1711193098] Development of flexible mobile healthcare software platform using 5G MEC<br/>
+                The Ministry of Science and ICT</p>
+                <p>[<a href="https://sites.google.com/view/sonix-scan-guide">project details</a>]</p>
+            </div>
+        </div>
 
-<b>My role is to manage practical operations of the project and lead software development for echocardiography Scan guide system.</b><br/>
+        <div class="item">
+            <img src="./picture/Gatekeeper.png" alt="AI-Gatekeeper"/>
+            <div>
+                <p><span class="title">AI-Gatekeeper Solution: Chest X-Ray module (2022 ~ 2024)</span>
+                This project aims to predict Coronary Artery Calcium Score (CACS) from chest X-rays, enabling early severity assessment typically requiring CT. By providing explainable predictions from routine imaging, this approach may reduce unnecessary invasive procedures and improve clinical decision-making.</p>
+                <p><b>My role was to manage practical operations and lead development of the chest X-ray disease prediction module.</b><br/>
+                Two papers have been published in SCI journals.</p>
+                <p>[No. 1711139017] Development of Various-type Feature-based Artificial Intelligence Gatekeeper Solution for the Screening of Coronary Artery Disease<br/>
+                The Ministry of Science and ICT</p>
+            </div>
+        </div>
+    </section>
 
-The related paper is published in SCI journals.<br/>
+    <section>
+        <h2>Paper/Conference</h2>
+        <hr class="fancy"/>
+        <ol class="publication-list">
+            <li><b>Jeong, H.†</b>, ... &amp; Chang, H. J. (2026). Multi-Task Deep Learning Framework for Real-Time Quality Assessment and Probe Guidance in Echocardiography. IEEE Journal of Biomedical and Health Informatics.</li>
+            <li>Jeong, D.†, Soh MS, Jeon J, <b>Jeong, H.</b>, ... &amp; Chang, H. J. (2026). Deep Learning–Based Multiclass Classification of Mitral Valve Etiologies Using Limited B-Mode and Color Doppler Echocardiography: Internal and External Validation. Journal of the American Society of Echocardiography.</li>
+            <li>Hong, Y.†, <b>Jeong, H.†</b>, Jang, Y., Heo, R., Lee, S. A., Yoon, Y. E., ... &amp; Chang, H. J. (2025). Predicting categories of coronary artery calcium scores from chest X-ray images using deep learning. Journal of Cardiovascular Computed Tomography.</li>
+            <li>Park, J., Kim, J., ..., <b>Jeong, H.</b>, ... &amp; Chang, H. J. (2025). Deep Learning–Based Detection and Severity Assessment of Bicuspid Aortic Valve Stenosis. Journal of the American Society of Echocardiography, 2025-04.</li>
+            <li>Park, J., Kim, J., Jeon, J., Yoon, Y. E., Jang, Y., <b>Jeong, H.</b>, ... &amp; Chang, H. J. (2025). Single View Echocardiographic Analysis for Left Ventricular Outflow Tract Obstruction Prediction in Hypertrophic Cardiomyopathy: A Deep Learning Approach. Journal of the American Society of Echocardiography, 2025-03.</li>
+            <li>Park, J., Kim, J., Jeon, J., Yoon, Y. E., Jang, Y., <b>Jeong, H.</b>, ... &amp; Chang, H. J. (2025). Artificial intelligence-enhanced comprehensive assessment of the aortic valve stenosis continuum in echocardiography. EBioMedicine, 112.</li>
+            <li><b>Jeong, H.†</b>, Park, H. B., Hong, J., Lee, J., Ha, S., Heo, R., ... &amp; Chang, H. J. (2024). Identifying Coronary Artery Calcification Using Chest X-ray Radiographs and Machine Learning: The Role of the Radiomics Score. Journal of Thoracic Imaging, 39(2), 119-126.</li>
+            <li>Jang, Y., Jung, J., Hong, Y., Lee, J., <b>Jeong, H.</b>, Shim, H., &amp; Chang, H. J. (2024). Fully Convolutional Hybrid Fusion Network with Heterogeneous Representations for Identification of S1 and S2 from Phonocardiogram. IEEE Journal of Biomedical and Health Informatics.</li>
+            <li>Oh, S. U., Park, H. B., <b>Jeong, H.</b>, S. Lee, J. N., Heo, R., Hong, Y. T., &amp; Chang, H. J. (2024). Deep learning approaches for image restoration in invasive coronary angiography. European Heart Journal, 45(Supplement_1), ehae666-2328.</li>
+            <li>Jeon, J., Ha, S., Yoon, Y. E., Kim, J., <b>Jeong, H.</b>, Jeong, D., ... &amp; Chang, H. J. (2023). Echocardiographic View Classification with Integrated Out-of-Distribution Detection for Enhanced Automatic Echocardiographic Analysis. arXiv preprint arXiv:2308.16483.</li>
+            <li>Park, H. B., <b>Jeong, H.</b>, Hong, Y., &amp; Chang, H. J. (2022). An Integrated Framework With Machine Learning and Radiomics Score for the Prediction of Coronary Artery Calcium Score From Chest Radiographs. Circulation, 146(Suppl_1), A11189-A11189.</li>
+            <li><b>Jeong, H.†</b>, Ha S, Shim H, Oh S, Chang H, “Skin Lesion Image Generation Method for Avoiding Data Imbalance with conditional Deep Convolutional Generative Adversarial Networks”, Proceedings of the Institute of Electronics and Information Engineers(IEEK) Conference, 1822-1828, 2020.</li>
+            <li>Seongmin Ha, <b>Jeong, H.</b>, Jihee Kim, Hyuk-jae Chang, Su Jin Park, Sang Ho Oh. Multiple classification by supplementing lesion region information on lesion of facial skin using deep learning. Korean Dermalogical Association program book, 72(1), 423-423, 2020.</li>
+            <li><b>Jeong, H.†</b>, Ha S, Shim H, Chang H, “Deep Learning Algorithm for Skin Lesion Severity Classification based on Lesion Information”, Proceedings of the Korean Information Science Society Conference, 1941-1943, 2019.</li>
+        </ol>
+    </section>
 
-[No. 1711193098] Development of flexible mobile healthcare software platform using 5G MEC<br/>
-The Ministry of Science and ICT<br/>
-
-<p>[<a href="https://sites.google.com/view/sonix-scan-guide">project details</a>] 
-    <br/>
-    <br/>
-</p></td>
-
-
-            <br/>
-            <br/>
-        </p></td>
-        </tr>
-<tr> 
-<tr>
-<td width="310">
-<img class="center" src="./picture/Gatekeeper.png" style="box-shadow: 4px 4px 8px #888" width="300px"/>
-</td>
-<td> <b>AI-Gatekeeper Solution : Chest X-Ray module (2022~2024) </b><br/>
-
-This project aims to predict Coronary Artery Calcium Score (CACS) from chest X-rays enabling early severity assessment typically requiring CT. By providing explainable predictions from routine imaging, this approach may reduce unnecessary invasive procedures and improve clinical decision-making.<br/>
-
-<b>My role was to manage practical operations and lead development of the chest X-ray disease prediction module.</b><br/>
-
-Two papers have been published in SCI journals. <br/>
-
-[No.1711139017]Development of Various-type Feature-based Artificial Intelligence Gatekeeper Solution for the Screening of Coronary Artery Disease<br/>
-The Ministry of Science and ICT<br/>
-
-                <br/>
-                <br/>
-            </p></td>
-            </tr>
-<tr>
-</tbody>
-</table>
-</li>
-</ul>
-</div>
-
-<h2>Paper/Conference</h2>
-<hr class="fancy">
-<div style="height: 700px; overflow: auto;">
-    <ol class="publication-list">
-        <li>
-        <b>Jeong, H.†</b>, ... & Chang, H. J. (2026). Multi-Task Deep Learning Framework for Real-Time Quality Assessment and Probe Guidance in Echocardiography. IEEE Journal of Biomedical and Health Informatics.<br/>
-        </li>
-        <li>
-        Jeong, D.†, Soh MS, Jeon J, <b>Jeong, H.</b>, ... & Chang, H. J. (2026). Deep Learning–Based Multiclass Classification of Mitral Valve Etiologies Using Limited B-Mode and Color Doppler Echocardiography: Internal and External Validation. Journal of the American Society of Echocardiography.<br/>
-        </li>
-        <li>
-        Hong, Y.†, <b>Jeong, H.†</b>, Jang, Y., Heo, R., Lee, S. A., Yoon, Y. E., ... & Chang, H. J. (2025). Predicting categories of coronary artery calcium scores from chest X-ray images using deep learning. Journal of Cardiovascular Computed Tomography.<br/>
-        </li>
-        <li>
-        Park, J., Kim, J., ..., <b>Jeong, H.</b>, ... & Chang, H. J. (2025). Deep Learning–Based Detection and Severity Assessment of Bicuspid Aortic Valve Stenosis. Journal of the American Society of Echocardiography, 2025-04.<br/>
-        </li>
-        <li>
-        Park, J., Kim, J., Jeon, J., Yoon, Y. E., Jang, Y., <b>Jeong, H.</b>, ... & Chang, H. J. (2025). Single View Echocardiographic Analysis for Left Ventricular Outflow Tract Obstruction Prediction in Hypertrophic Cardiomyopathy: A Deep Learning Approach. Journal of the American Society of Echocardiography, 2025-03.<br/>
-        </li>
-        <li>
-        Park, J., Kim, J., Jeon, J., Yoon, Y. E., Jang, Y., <b>Jeong, H.</b>, ... & Chang, H. J. (2025). Artificial intelligence-enhanced comprehensive assessment of the aortic valve stenosis continuum in echocardiography. EBioMedicine, 112.<br/>
-        </li>
-        <li>
-        <b>Jeong, H.†</b>, Park, H. B., Hong, J., Lee, J., Ha, S., Heo, R., ... & Chang, H. J. (2024). Identifying Coronary Artery Calcification Using Chest X-ray Radiographs and Machine Learning: The Role of the Radiomics Score. Journal of Thoracic Imaging, 39(2), 119-126.<br/>
-        </li>
-        <li>
-        Jang, Y., Jung, J., Hong, Y., Lee, J., <b>Jeong, H.</b>, Shim, H., & Chang, H. J. (2024). Fully Convolutional Hybrid Fusion Network with Heterogeneous Representations for Identification of S1 and S2 from Phonocardiogram. IEEE Journal of Biomedical and Health Informatics.<br/>
-        </li>
-        <li>
-        Oh, S. U., Park, H. B., <b>Jeong, H.</b>, S. Lee, J. N., Heo, R., Hong, Y. T., & Chang, H. J. (2024). Deep learning approaches for image restoration in invasive coronary angiography. European Heart Journal, 45(Supplement_1), ehae666-2328.<br/>
-        <li>
-        Jeon, J., Ha, S., Yoon, Y. E., Kim, J., <b>Jeong, H.</b>, Jeong, D., ... & Chang, H. J. (2023). Echocardiographic View Classification with Integrated Out-of-Distribution Detection for Enhanced Automatic Echocardiographic Analysis. arXiv preprint arXiv:2308.16483.<br/>
-        </li>
-        <li>
-        Park, H. B., <b>Jeong, H.</b>, Hong, Y., & Chang, H. J. (2022). An Integrated Framework With Machine Learning and Radiomics Score for the Prediction of Coronary Artery Calcium Score From Chest Radiographs. Circulation, 146(Suppl_1), A11189-A11189.<br/>
-        </li>
-        <li>
-        <b>Jeong, H.†</b>, Ha S, Shim H, Oh S, Chang H, “Skin Lesion Image Generation Method for Avoiding Data Imbalance with conditional Deep Convolutional Generative Adversarial Networks”, Proceedings of the Institute of Electronics and Information Engineers(IEEK) Conference, 1822-1828, 2020.<br/>
-        </li>
-        <li>
-        Seongmin Ha, <b>Jeong, H.</b>, Jihee Kim, Hyuk-jae Chang, Su Jin Park, Sang Ho Oh. Multiple classification by supplementing lesion region information on lesion of facial skin using deep learning. Korean Dermalogical Association program book, 72(1), 423-423, 2020.<br/>
-        </li>
-        <li>
-        <b>Jeong, H.†</b>, Ha S, Shim H, Chang H, “Deep Learning Algorithm for Skin Lesion Severity Classification based on Lesion Information”, Proceedings of the Korean Information Science Society Conference, 1941-1943, 2019.<br/>
-        </li>
-    </ol>
-</div>
-
-<h2>Patent</h2>
-<hr class="fancy">
-<div style="height: 100px; overflow: auto;">
-
-
-<ul>
-<li>
-    [1020230051037] Method and device for guiding echocardiography<br/>
-</li>
-<li>
-    [1020230072370] Method and device for providing information of sonogram view<br/>
-</li>
-<li>
-    [1020220177169] Method and apparatus for assisting for diagnosing calcification based on artificial intelligence model<br/>
-</li>
-<li>
-    [1020200033029] First aid guideline providing method and system based on Artificial Intelligence<br/>
-</li>
-</ul>
-</div>
-
-
+    <section>
+        <h2>Patent</h2>
+        <hr class="fancy"/>
+        <ul>
+            <li>[1020230051037] Method and device for guiding echocardiography</li>
+            <li>[1020230072370] Method and device for providing information of sonogram view</li>
+            <li>[1020220177169] Method and apparatus for assisting for diagnosing calcification based on artificial intelligence model</li>
+            <li>[1020200033029] First aid guideline providing method and system based on Artificial Intelligence</li>
+        </ul>
+    </section>
 </main>
-<footer id="footer">
-    <div id="footer-text"></div>
-	<p><center>
-		
-        <div id="clustrmaps-widget" style="width:10%">
-            <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=leKvHtCX4A85cFkMeX3cxMwDo89tfEtUQ1G2IngHUmk"></script>
-      <noscript><a href='https://clustrmaps.com/site/1b3ut'  title='Visit tracker'><img src='//clustrmaps.com/map_v2.png?cl=ffffff&w=a&t=tt&d=pT8r_ZMBBdBPTv7KnlTCiBDylmHyi1qsWdPpY_tIlqY'/></a></noscript>
-  </div>      
+
+<footer>
+    <div id="clustrmaps-widget">
+        <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=leKvHtCX4A85cFkMeX3cxMwDo89tfEtUQ1G2IngHUmk"></script>
+    </div>
+    <p>© Hyunseok Jeong | Last updated: Oct, 2026</p>
 </footer>
-<p style="text-align: center;">© Hyunseok Jeong | Last updated: Aug, 2026</p>
 </body>
 </html>
